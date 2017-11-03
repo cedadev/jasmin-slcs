@@ -6,10 +6,10 @@ ContrailCA==0.4.0
 cryptography==2.1.3
 Django==1.11.7
 django-oauth-toolkit==1.0.0
--e git+git@github.com:cedadev/django-onlineca.git@9245be7d8f80dbc026c15859f3c1d2752f11ec9e#egg=django_onlineca
--e git+git@github.com:cedadev/dot-dynamic-scopes.git@a899d04b0fdbc5872ba7ab0618b53e4887c167d8#egg=dot_dynamic_scopes
+-e git+https://github.com/cedadev/django-onlineca.git@56d56f19843c1e9abcc12639e626fdf6143edb4f#egg=django_onlineca
+-e git+https://github.com/cedadev/dot-dynamic-scopes.git@a899d04b0fdbc5872ba7ab0618b53e4887c167d8#egg=dot_dynamic_scopes
 idna==2.6
--e git+git@github.com:cedadev/jasmin-django-utils.git@4b1b140abca73d5001a74cf9647a17e7f72c9219#egg=jasmin_django_utils
+-e git+https://github.com/cedadev/jasmin-django-utils.git@4b1b140abca73d5001a74cf9647a17e7f72c9219#egg=jasmin_django_utils
 oauthlib==2.0.6
 psycopg2==2.7.3.2
 pycparser==2.18
