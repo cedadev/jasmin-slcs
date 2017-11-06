@@ -38,5 +38,7 @@ if __name__ == "__main__":
             'dot-dynamic-scopes',
             'django-onlineca',
             'psycopg2',
+            'requests',
+            'jasmin-django-utils',
         ],
     )
