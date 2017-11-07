@@ -40,6 +40,5 @@ class OAuthPasswordGrantBackend(ModelBackend):
             # Authentication failed. Let the next backend try.
             return None
         else:
-            print(response.text)
             # For any other response code, raise the error
             response.raise_for_status()
