@@ -47,7 +47,8 @@ def certificate(request):
             content = 'Authentication required.',
             content_type = 'text/plain'
         )
-        response['WWW-Authenticate'] = 'Basic realm="{}"'.format(app_settings.AUTH_CHALLENGE_REALM)
-        response['WWW-Authenticate'] = 'Bearer realm="{}"'.format(app_settings.AUTH_CHALLENGE_REALM)
+        response['WWW-Authenticate'] = 'Basic realm="{realm}", Bearer realm="{realm}"'.format(
+            app_settings.AUTH_CHALLENGE_REALM
+        )
         return response
     return onlineca_certificate(request)
