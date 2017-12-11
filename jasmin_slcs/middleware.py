@@ -11,6 +11,8 @@ from django.utils.cache import patch_vary_headers
 from django.http import HttpResponse
 from django.contrib.auth.models import AnonymousUser
 
+from .settings import app_settings
+
 
 class BasicAuthMiddleware:
     """
@@ -47,6 +49,14 @@ class BasicAuthMiddleware:
                 )
                 if user:
                     request.user = request._cached_user = user
+                else:
+                    response = HttpResponse(
+                        status = 401,
+                        content = 'Authentication required',
+                        content_type = 'text/plain'
+                    )
+                    response['WWW-Authenticate'] = 'Basic realm="{}"'.format(app_settings.BASIC_AUTH_REALM)
+                    return response
         # Get the response
         response = self.get_response(request)
         # Patch the vary headers for caching
