@@ -4,6 +4,8 @@ Django views for the JASMIN SLCS project.
 
 import functools
 
+from django.http import HttpResponse
+from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 
 from oauth2_provider.decorators import protected_resource
@@ -29,5 +31,23 @@ def protected_resource_if_oauth(scopes = None):
     return decorator
 
 
-_with_scope = protected_resource_if_oauth(scopes = [app_settings.CERTIFICATE_SCOPE])
-certificate = _with_scope(csrf_exempt(onlineca_certificate))
+@require_POST
+@protected_resource_if_oauth(scopes = [app_settings.CERTIFICATE_SCOPE])
+@csrf_exempt
+def certificate(request):
+    """
+    Wrapper for the onlineca certificate view that sends back a 401 if no authentication
+    was provided.
+    """
+    if not request.user.is_authenticated():
+        # If there is no authenticated user, send back a challenge indicating the
+        # authentication methods we accept
+        response = HttpResponse(
+            status = 401,
+            content = 'Authentication required.',
+            content_type = 'text/plain'
+        )
+        response['WWW-Authenticate'] = 'Basic realm="{}"'.format(app_settings.AUTH_CHALLENGE_REALM)
+        response['WWW-Authenticate'] = 'Bearer realm="{}"'.format(app_settings.AUTH_CHALLENGE_REALM)
+        return response
+    return onlineca_certificate(request)

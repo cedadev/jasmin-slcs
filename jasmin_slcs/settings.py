@@ -20,8 +20,8 @@ class AppSettings(SettingsObject):
     PASSWORD_GRANT_CLIENT_ID = Setting()
     #: Client secret to use for the resource owner password grant flow
     PASSWORD_GRANT_CLIENT_SECRET = Setting()
-    #: The realm for Basic auth challenges
-    BASIC_AUTH_REALM = Setting()
+    #: The realm for authentication challenges
+    AUTH_CHALLENGE_REALM = Setting()
 
 
 app_settings = AppSettings('JASMIN_SLCS', getattr(settings, 'JASMIN_SLCS', {}))
