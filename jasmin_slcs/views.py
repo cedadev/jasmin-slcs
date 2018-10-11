@@ -39,7 +39,7 @@ def certificate(request):
     Wrapper for the onlineca certificate view that sends back a 401 if no authentication
     was provided.
     """
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         # If there is no authenticated user, send back a challenge indicating the
         # authentication methods we accept
         response = HttpResponse(
