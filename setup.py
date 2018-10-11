@@ -35,6 +35,6 @@ if __name__ == "__main__":
             'django-onlineca',
             'psycopg2',
             'requests',
-            'jasmin-django-utils',
+            'django-settings-object',
         ],
     )

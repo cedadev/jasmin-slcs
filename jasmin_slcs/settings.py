@@ -4,7 +4,7 @@ Settings helpers for the ``jasmin_slcs`` Django app.
 
 from django.conf import settings
 
-from jasmin_django_utils.appsettings import SettingsObject, Setting
+from settings_object import SettingsObject, Setting
 
 
 class AppSettings(SettingsObject):
@@ -24,4 +24,4 @@ class AppSettings(SettingsObject):
     AUTH_CHALLENGE_REALM = Setting()
 
 
-app_settings = AppSettings('JASMIN_SLCS', getattr(settings, 'JASMIN_SLCS', {}))
+app_settings = AppSettings('JASMIN_SLCS')
