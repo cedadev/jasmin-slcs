@@ -1,20 +1,22 @@
-asn1crypto==0.24.0
-certifi==2018.11.29
-cffi==1.11.5
+asgiref==3.2.3
+certifi==2019.11.28
+cffi==1.13.2
 chardet==3.0.4
 ContrailCA==0.4.0
-cryptography==2.4.2
-Django==2.1.5
+cryptography==2.8
+Django==3.0
 django-oauth-toolkit==1.2.0
 -e git+https://github.com/cedadev/django-onlineca.git@3d41f51e31d45938e17ff4a1086f58631b74473e#egg=django_onlineca
--e git+https://github.com/cedadev/django-settings-object.git@0f88e7d3693f1767b6f11f577d7efacf836932bb#egg=django_settings_object
+-e git+https://github.com/cedadev/django-settings-object.git@b87e921a95bbfaf70c08af6b3484ecf243a97d1c#egg=django_settings_object
 -e git+https://github.com/cedadev/dot-dynamic-scopes.git@add56b59bdf1e157c2e215675f178abcc4489f80#egg=dot_dynamic_scopes
 idna==2.8
-oauthlib==2.1.0
-psycopg2==2.7.6.1
+-e git+git@github.com:cedadev/jasmin-slcs.git@e1f187a4eb410735989f0760c87c38d9e1052b04#egg=jasmin_slcs
+oauthlib==3.1.0
+psycopg2-binary==2.8.4
 pycparser==2.19
-pyOpenSSL==18.0.0
-pytz==2018.9
-requests==2.21.0
-six==1.12.0
-urllib3==1.24.1
+pyOpenSSL==19.1.0
+pytz==2019.3
+requests==2.22.0
+six==1.13.0
+sqlparse==0.3.0
+urllib3==1.25.7

@@ -41,7 +41,7 @@ def certificate(request):
     """
     if not request.user.is_authenticated:
         # If there is no authenticated user, send back a challenge indicating the
-        # authentication methods we accept
+        # authentication methods we accept
         response = HttpResponse(
             status = 401,
             content = 'Authentication required.',

@@ -33,7 +33,7 @@ if __name__ == "__main__":
             'django-oauth-toolkit',
             'dot-dynamic-scopes',
             'django-onlineca',
-            'psycopg2',
+            'psycopg2-binary',
             'requests',
             'django-settings-object',
         ],

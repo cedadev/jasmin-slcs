@@ -19,10 +19,10 @@ class OAuthPasswordGrantBackend(ModelBackend):
     Password Credentials grant type to authenticate a user.
     """
     def authenticate(self, request, username = None, password = None, **kwargs):
-        # If either username or password are not given, defer
+        # If either username or password are not given, defer
         if not (username and password):
             return None
-        # If we have a username and password, ask the authz server if they are valid
+        # If we have a username and password, ask the authz server if they are valid
         response = requests.post(
             app_settings.AUTH_SERVER_TOKEN_URL,
             data = {
@@ -34,11 +34,11 @@ class OAuthPasswordGrantBackend(ModelBackend):
             }
         )
         if response.status_code == 200:
-            # Username/password are valid - create and return a user record
+            # Username/password are valid - create and return a user record
             return UserModel.objects.get_or_create(username = username)[0]
         elif response.status_code in [401, 403]:
-            # Authentication failed. Let the next backend try.
+            # Authentication failed. Let the next backend try.
             return None
         else:
-            # For any other response code, raise the error
+            # For any other response code, raise the error
             response.raise_for_status()

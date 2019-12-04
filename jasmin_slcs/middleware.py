@@ -25,7 +25,7 @@ class BasicAuthMiddleware:
 
     def __call__(self, request):
         # If the request contains a basic auth credential and the user has not
-        # already been authenticated, try to authenticate
+        # already been authenticated, try to authenticate
         if not hasattr(request, "user") or request.user.is_anonymous:
             auth_header = request.META.get('HTTP_AUTHORIZATION', '')
             if auth_header.startswith('Basic'):
@@ -53,9 +53,9 @@ class BasicAuthMiddleware:
                         content = 'Invalid Basic Auth credentials.',
                         content_type = 'text/plain'
                     )
-        # Get the response
+        # Get the response
         response = self.get_response(request)
-        # Patch the vary headers for caching
+        # Patch the vary headers for caching
         patch_vary_headers(response, ("Authorization", ))
         return response
 
