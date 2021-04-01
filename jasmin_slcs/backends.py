@@ -36,7 +36,7 @@ class OAuthPasswordGrantBackend(ModelBackend):
         if response.status_code == 200:
             # Username/password are valid - create and return a user record
             return UserModel.objects.get_or_create(username = username)[0]
-        elif response.status_code in [401, 403]:
+        elif response.status_code in [400, 401, 403]:
             # Authentication failed. Let the next backend try.
             return None
         else:
